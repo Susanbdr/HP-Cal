@@ -135,6 +135,6 @@ function CovertToString(angle)
   return convertToString;
 }
 
- //findHp(doubleRunPowerRequired, "0_5", "six");
- SetHp();
+ findHp(doubleRunPowerRequired, "0_5", "six");
+ //SetHp();
 //FindMatch(4.26);
