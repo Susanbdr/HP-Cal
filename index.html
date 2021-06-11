@@ -1,18 +1,176 @@
 <!doctype html>
 <html>
+
 <head>
-	
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+    #hpTable {
+      float: right;
+    }
+
+    .redText {
+      color: red;
+    }
+  </style>
 </head>
 
-
-
-
-
 <body>
+  <div class="jumbotron">
+<div class="container">
+ 
+  <div class="row">
+    <div class="col-sm-5">
+      <div class="form-group row">
+        <label for="cars" class="col-sm-4 col-form-label">Capacity Selection</label>
+        <div class="col-sm-8">
+          <select name="cars" id="capacitySelection" onchange="SetHp()">
+            <option value="six">1500 BPH (6" Model)</option>
+            <option value="eight">4000 BPH (8" Model)</option>
+            <option value="ten">6000 BPH (10" Model)</option>
+            <option value="twelve">10000 BPH (12" Model)</option>
+          </select>
+        </div>
+      </div>
 
-<p>Hello World</p>
-	
-	
-<script src="https://Susanbdr.github.io/HP-Cal/test.js"></script>
+      <div class="form-group row">
+        <label for="cars" class="col-sm-4 col-form-label">Commodity Selection</label>
+        <div class="col-sm-8">
+          <select name="cars" id="commoditySelection" onchange="SetHp()">
+            <option value="1">Corn</option>
+            <option value="1.2">Wet Corn</option>
+            <option value="1.2">Beans</option>
+            <option value="1">Wheat</option>
+            <option value="1.2">Rice</option>
+          </select>
+        </div>
+      </div>
+     
+      <div class="form-group row">
+        <label for="cars" class="col-sm-4 col-form-label">Straight Conveyor Incline Angle:</label>
+        <div class="col-sm-8">
+          <select name="cars" id="straightConveyorInclineAngle" onchange="SetCalculatedHp()">
+            <option value="0_5">0°-5°</option>
+            <option value="10_15">10°-15°</option>
+            <option value="20_30">20°-30°</option>
+            <option value="35_45">35°-45°</option>
+            <option value="50_60">50°-60°</option>
+          </select>
+        </div>
+      </div>
+     
+      <div class="form-group row">
+        <label for="cars" class="col-sm-4 col-form-label">Straight Conveyor Length:</label>
+        <div class="col-sm-8">
+          <select name="cars" id="straightConveyorLength" onchange="SetHp()"></select>
+        </div>
+      </div>
+   
+      <div class="form-group row">
+        <label for="cars" class="col-sm-4 col-form-label">Future Expansion Additional Length (ft):</label>
+        <div class="col-sm-8">
+          <select name="cars" id="futureExpansionAdditionalLength" onchange="SetHp()"></select>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="col-sm-5">
+      <div id="hpTable">
+        <table>
+          <tr>
+            <th>Model Size</th>
+            <th>6</th>
+            <th>8</th>
+            <th>10</th>
+            <th>12</th>
+          </tr>
+          <tr>
+            <td>0°-5°</td>
+            <td>0.042</td>
+            <td>0.076</td>
+            <td>0.114</td>
+            <td>0.18</td>
+          </tr>
+          <tr>
+            <td>10°-15°</td>
+            <td>0.062</td>
+            <td>0.113</td>
+            <td>0.17</td>
+            <td>0.268</td>
+          </tr>
+          <tr>
+            <td>20°-30°</td>
+            <td>0.085</td>
+            <td>0.167</td>
+            <td>0.25</td>
+            <td>0.397</td>
+          </tr>
+          <tr>
+            <td>35°-45°</td>
+            <td>0.12</td>
+            <td>0.222</td>
+            <td>0.333</td>
+            <td>0.524</td>
+          </tr>
+          <tr>
+            <td>50°-60°</td>
+            <td>0.15</td>
+            <td>0.27</td>
+            <td>0.405</td>
+            <td>0.629</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="col-sm-2">
+      <table>
+        <tr>
+          <th>Commodity Multiplier</th>
+          <td id="commodity" class="redText"></td>
+        </tr>
+
+        <tr>
+          <th>Coefficient</th>
+          <td id="coefficient" class="redText"></td>
+        </tr>
+
+        <tr>
+          <th>Standard HP</th>
+          <td id="standardHp" class="redText"></td>
+        </tr>
+
+        <tr>
+          <th>Required HP</th>
+          <td id="requiredHp" class="redText"></td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+  <p id="standardHpCalculation"></p>
+</div>
+</div>
+  <script src="hpCal.js"></script>
 </body>
+
 </html>
