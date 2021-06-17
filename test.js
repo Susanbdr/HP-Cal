@@ -106,7 +106,7 @@ const SetCalculatedHp = () =>
   console.log("Future Expansion Length:",  futureExpansionLength);
   const capacity = document.getElementById('capacitySelection').value;
   const straightConveyorInclineAngle = document.getElementById('straightConveyorInclineAngle').value;
-  const commodityMultiplier = parseInt(document.getElementById('commoditySelection').value);
+  const commodityMultiplier = parseFloat(document.getElementById('commoditySelection').value);
   const coefficient = FindCoefficient(doubleRunPowerRequired, straightConveyorInclineAngle, capacity);
   
   const horizontalComponent = ((straightConveyorLength + futureExpansionLength) 
